@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AifFlow工作流-集群]]></title>
+    <url>%2F2019%2F07%2F18%2FAirFlow-%E5%B7%A5%E4%BD%9C%E6%B5%81%2F</url>
+    <content type="text"><![CDATA[1 AirFlow介绍a.Airflow是一个可编程，调度和监控的工作流平台，基于有向无环图(DAG)，airflow可以定义一组有依赖的任务，按照依赖依次执行。airflow提供了丰富的命令行工具用于系统管控，而其web管理界面同样也可以方便的管控调度任务，并且对任务运行状态进行实时监控，方便了系统的运维和管理。 b.airflow 是 apache下孵化项目，是纯 Python 编写的一款非常优雅的开源调度平台。 c.airflow免费2 组成部分系统配置（$AIRFLOW_HOME/airflow.cfg） 作业管理（$AIRFLOW_HOME/dags/xxxx.py） 运行监控（webserver) 报警（邮件或短信） 日志查看（webserver 或 $AIRFLOW_HOME/logs/***) 跑批耗时分析（webserver) 后台调度服务（scheduler) 除了短信需要自己实现，其他功能 airflow 都有，而且在 airflow 的 webserver 上我们可以直接配置数据库连接来写 sql 查询，做更加灵活的统计分析。3 概念a.DAG-依赖关系有向无环图 b.Operators-操作符 c.timezone-时区 d.webserver-web服务器 e.schduler-调度器 f.worker-工作节点 g.executor-执行器4 参考文章a.https://www.jianshu.com/p/2ecef979c606, 集群搭建 b.https://www.jianshu.com/p/825629ffe3a7, 组成与概念 c.https://www.cnblogs.com/cord/p/9450910.html, 简单使用]]></content>
+      <categories>
+        <category>airflow</category>
+      </categories>
+      <tags>
+        <tag>AirFlow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos7-Swap扩展]]></title>
     <url>%2F2019%2F07%2F12%2FCentos7-Swap%E5%A2%9E%E5%8A%A0%2F</url>
     <content type="text"><![CDATA[1 查看swap使用情况1swapon -s 2 查看内存情况1free -m 3 查看磁盘情况1df -h 4 创建swap文件1sudo fallocate -l 4G /swapfile1 5 启用swap文件1234sudo chmod 600 /swapfile1sudo mkswap /swapfile1swapon /swapfile1 (swapoff /swapfile1)free -m 6.1 永久自动开启swap-方式112/etc/rc.d/rc.local:/sbin/swapon /swapfile1 6.2 永久自动开启swap-方式212vim /etc/fstab:/swapfile1 swap swap sw 0 0 7.0 swap系统参数swappiness查看1/proc/sys/vm/swappiness:0~100(值越小-不使用swap，值越大-尽量使用swap) 7.1 临时更改swap系统参数swappiness1sudo sysctl vm.swappiness=10(临时更改) 7.2 永久更改swap系统参数swappiness12vim /etc/sysctl.conf：vm.swappiness = 10 8.0 swap系统参数vfs_cache_pressure查看1cat /proc/sys/vm/vfs_cache_pressure 8.1 临时更改swap系统参数vfs_cache_pressure1sudo sysctl vm.vfs_cache_pressure=50 8.2 永久更改swap系统参数vfs_cache_pressure12vim /etc/sysctl.conf：vm.vfs_cache_pressure = 50]]></content>
@@ -31,8 +42,8 @@
         <category>Istio</category>
       </categories>
       <tags>
-        <tag>k8s</tag>
         <tag>Istio</tag>
+        <tag>k8s</tag>
       </tags>
   </entry>
   <entry>
@@ -116,29 +127,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[github api]]></title>
-    <url>%2F2019%2F01%2F11%2Fgithub-RestFul-API%2F</url>
-    <content type="text"><![CDATA[github API DOC:https://developer.github.com/v3/repos/contents/#get-contents]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[安全漏洞查询]]></title>
-    <url>%2F2019%2F01%2F11%2F%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9F%A5%E8%AF%A2%2F</url>
-    <content type="text"><![CDATA[国内cnvdhttp://www.cnnvd.org.cn/ http://www.cnvd.org.cn/ http://cve.scap.org.cn/国外nvdhttps://nvd.nist.gov/ http://cve.mitre.org/]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python-爬虫破解cookies]]></title>
     <url>%2F2019%2F01%2F11%2Fpython-%E7%88%AC%E8%99%AB%E7%A0%B4%E8%A7%A3cookies%2F</url>
     <content type="text"><![CDATA[参考：http://www.cnblogs.com/jhao/p/6609605.html12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879# -*- coding: utf-8 -*-"""------------------------------------------------- File Name： demo_1.py.py Description : Python爬虫—破解JS加密的Cookie 快代理网站为例：http://www.kuaidaili.com/proxylist/1/ Document: Author : JHao date： 2017/3/23------------------------------------------------- Change Activity: 2017/3/23: 破解JS加密的Cookie-------------------------------------------------"""__author__ = 'JHao'import reimport PyV8import requestsTARGET_URL = "http://www.kuaidaili.com/proxylist/1/"def getHtml(url, cookie=None): header = &#123; "Host": "www.kuaidaili.com", 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8', &#125; html = requests.get(url=url, headers=header, timeout=30, cookies=cookie).content return htmldef executeJS(js_func_string, arg): ctxt = PyV8.JSContext() ctxt.enter() func = ctxt.eval("(&#123;js&#125;)".format(js=js_func_string)) return func(arg)def parseCookie(string): string = string.replace("document.cookie='", "") clearance = string.split(';')[0] return &#123;clearance.split('=')[0]: clearance.split('=')[1]&#125;# 第一次访问获取动态加密的JSfirst_html = getHtml(TARGET_URL)# first_html = """# &lt;html&gt;&lt;body&gt;&lt;script language="javascript"&gt; window.onload=setTimeout("lu(158)", 200); function lu(OE) &#123;var qo, mo="", no="", oo = [0x64,0xaa,0x98,0x3d,0x56,0x64,0x8b,0xb0,0x88,0xe1,0x0d,0xf4,0x99,0x31,0xd8,0xb6,0x5d,0x73,0x98,0xc3,0xc4,0x7a,0x1e,0x38,0x9d,0xe8,0x8d,0xe4,0x0a,0x2e,0x6c,0x45,0x69,0x41,0xe5,0xd0,0xe5,0x11,0x0b,0x35,0x7b,0xe4,0x09,0xb1,0x2b,0x6d,0x82,0x7c,0x25,0xdd,0x70,0x5a,0xc4,0xaa,0xd3,0x74,0x98,0x42,0x3c,0x60,0x2d,0x42,0x66,0xe0,0x0a,0x2e,0x96,0xbb,0xe2,0x1d,0x38,0xdc,0xb1,0xd6,0x0e,0x0d,0x76,0xae,0xc3,0xa9,0x3b,0x62,0x47,0x40,0x15,0x93,0xb7,0xee,0xc3,0x3e,0xfd,0xd3,0x0d,0xf6,0x61,0xdc,0xf1,0x2c,0x54,0x8c,0x90,0xfa,0x24,0x5b,0x83,0x0c,0x75,0xaf,0x18,0x01,0x7e,0x68,0xe0,0x0a,0x72,0x1e,0x88,0x33,0xa7,0xcc,0x31,0x9b,0xf3,0x1a,0xf2,0x9a,0xbf,0x58,0x83,0xe4,0x87,0xed,0x07,0x7e,0xe2,0x00,0xe9,0x92,0xc9,0xe8,0x59,0x7d,0x56,0x8d,0xb5,0xb2,0x6c,0xe0,0x49,0x73,0xfc,0xe7,0x20,0x49,0x34,0x09,0x71,0xeb,0x60,0xfd,0x8e,0xad,0x0f,0xb9,0x2e,0x77,0xdc,0x74,0x9b,0xbf,0x8f,0xa5,0x8d,0xb8,0xb0,0x06,0xac,0xc5,0xe9,0x10,0x12,0x77,0x9b,0xb1,0x19,0x4e,0x64,0x5c,0x00,0x98,0xc6,0xed,0x98,0x0d,0x65,0x11,0x35,0x9e,0xf4,0x30,0x93,0x4b,0x00,0xab,0x20,0x8f,0x29,0x4f,0x27,0x8c,0xc2,0x6a,0x04,0xfb,0x51,0xa3,0x4b,0xef,0x09,0x30,0x28,0x4d,0x25,0x8e,0x76,0x58,0xbf,0x57,0xfb,0x20,0x78,0xd1,0xf7,0x9f,0x77,0x0f,0x3a,0x9f,0x37,0xdb,0xd3,0xfc,0x14,0x39,0x11,0x3b,0x94,0x8c,0xad,0x8e,0x5c,0xd3,0x3b];qo = "qo=251; do&#123;oo[qo]=(-oo[qo])&amp;0xff; oo[qo]=(((oo[qo]&gt;&gt;4)|((oo[qo]&lt;&lt;4)&amp;0xff))-0)&amp;0xff;&#125; while(--qo&gt;=2);"; eval(qo);qo = 250; do &#123; oo[qo] = (oo[qo] - oo[qo - 1]) &amp; 0xff; &#125; while (-- qo &gt;= 3 );qo = 1; for (;;) &#123; if (qo &gt; 250) break; oo[qo] = ((((((oo[qo] + 200) &amp; 0xff) + 121) &amp; 0xff) &lt;&lt; 6) &amp; 0xff) | (((((oo[qo] + 200) &amp; 0xff) + 121) &amp; 0xff) &gt;&gt; 2); qo++;&#125;po = ""; for (qo = 1; qo &lt; oo.length - 1; qo++) if (qo % 5) po += String.fromCharCode(oo[qo] ^ OE);eval("qo=eval;qo(po);");&#125; &lt;/script&gt; &lt;/body&gt;&lt;/html&gt;# """# 提取其中的JS加密函数js_func = ''.join(re.findall(r'(function .*?)&lt;/script&gt;', first_html))print 'get js func:\n', js_func# 提取其中执行JS函数的参数js_arg = ''.join(re.findall(r'setTimeout\(\"\D+\((\d+)\)\"', first_html))print 'get ja arg:\n', js_arg# 修改JS函数，使其返回Cookie内容js_func = js_func.replace('eval("qo=eval;qo(po);")', 'return po')# 执行JS获取Cookiecookie_str = executeJS(js_func, js_arg)# 将Cookie转换为字典格式cookie = parseCookie(cookie_str)print cookie# 带上Cookie再次访问url,获取正确数据print getHtml(TARGET_URL, cookie)[0:500]]]></content>
@@ -159,6 +147,29 @@
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[安全漏洞查询]]></title>
+    <url>%2F2019%2F01%2F11%2F%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9F%A5%E8%AF%A2%2F</url>
+    <content type="text"><![CDATA[国内cnvdhttp://www.cnnvd.org.cn/ http://www.cnvd.org.cn/ http://cve.scap.org.cn/国外nvdhttps://nvd.nist.gov/ http://cve.mitre.org/]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[github api]]></title>
+    <url>%2F2019%2F01%2F11%2Fgithub-RestFul-API%2F</url>
+    <content type="text"><![CDATA[github API DOC:https://developer.github.com/v3/repos/contents/#get-contents]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -229,18 +240,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[树莓派3b+ ubuntu ls颜色设置]]></title>
-    <url>%2F2018%2F12%2F18%2Fubuntu_ls_color%2F</url>
-    <content type="text"><![CDATA[树莓派3b+ ubuntu 终端ls时颜色设置参考： https://blog.csdn.net/LL_zhuo/article/details/44221567完]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>树莓派</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[树莓派3b+_vim颜色主题]]></title>
     <url>%2F2018%2F12%2F18%2Fvim-colors%2F</url>
     <content type="text"><![CDATA[vim主题颜色设置环境: 树莓派3b+ ubuntu vim8 uname -a Linux pi 4.14.79-v7+ #1159 SMP Sun Nov 4 17:50:20 GMT 2018 armv7l GNU/Linux vim --version VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Sep 30 2017 18:21:38) Included patches: 1-197, 322, 377-378, 550, 703, 706-707 Modified by pkg-vim-maintainers@lists.alioth.debian.org Compiled by pkg-vim-maintainers@lists.alioth.debian.org ...1.查看vim配置文件先查看是否有用户配置文件 如果有： ls -ltr ~/.vimrc 如果没有： ls -ltr /etc/vim/vimrc.local 如果有： 修改此文件 如果没有： ls -ltr /etc/vim/vimrc 这个肯定应该有，修改这个文件2.查看当前vim自带的颜色主题：ls -tlr /usr/share/vim/vim{XX}/colors/,例如： ls -ltr /usr/share/vim/vim80/colors/ total 76 -rw-r--r-- 1 root root 1840 Oct 1 2017 zellner.vim -rw-r--r-- 1 root root 1629 Oct 1 2017 torte.vim -rw-r--r-- 1 root root 2445 Oct 1 2017 slate.vim -rw-r--r-- 1 root root 2720 Oct 1 2017 shine.vim -rw-r--r-- 1 root root 1393 Oct 1 2017 ron.vim -rw-r--r-- 1 root root 2904 Oct 1 2017 README.txt ...3.修改对应步骤1中的配置文件vim xxx.vimrc: color delek #在文件末尾加一行4.顺便开启语法高亮：syntax on完]]></content>
@@ -253,9 +252,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[树莓派3b+_AlphaBot2模块列表]]></title>
-    <url>%2F2018%2F12%2F17%2Fpi3b-AlphaBot2%2F</url>
-    <content type="text"><![CDATA[Arduino控制程序：Run-Test 电机测试 Joystick 程序 五向摇杆 IR 程序 红外遥控器控制 Infrared-Obstacle-Avoidancec 红外避障 Ultrasionc-Obstacle-Avoidance 超声波避障 Ultrasionc-Infrared-Obstacle-Avoidance 超声波红外避障 Ultrasionc_Ranging 超声波测距 TRSensors 寻迹传感器测试 Infrared-Line-Tracking 红外寻迹 W2812 RGB彩灯 OLED 绘图操作demo Line-Tracking 综合程序 MazeSolver 迷宫程序 Bluetooth 蓝牙控制 Bluetooth-json 蓝牙控制(json格式) 树莓派控制程序(AlphaBot2.tar.gz):wget http://www.waveshare.net/w/upload/e/ee/AlphaBot2-Demo.7z wget http://www.waveshare.net/w/upload/c/c3/Rpi_ws281x-master.zipgpiogit clone git://git.drogon.net/wiringPi cd wiringPi ./build gpio -v gpio readall红外遥控器控制cd ~/AlphaBot2/python python IRremote.py电机测试cd ~/AlphaBot2/python python AlphaBot2.py五向摇杆cd ~/AlphaBot2/python python Joystick.py红外避障cd ~/AlphaBot2/python python Infrared_Obstacle_Avoidance.py超声波测距（树莓派 3B 套餐不包含超声波模块）cd ~/AlphaBot2/python python Ultrasonic_Rangeing.py超声波测距（树莓派 3B 套餐不包含超声波模块）cd ~/AlphaBot2/python python Infrared_Obstacle_Avoidance.pyRGB 彩灯rpi_ws281x-master.zip unzip rpi_ws281x-master.zip apt-get install build-essential python-dev scons swig cd rpi_ws281x-master scons ./test cd python python setup.py install cd examples python lowlevel.py cd ~/AlphaBot2/python python ws2812.py循迹传感器测试cd ~/AlphaBot2/python python TRSensors.py红外循迹程序cd ~/AlphaBot2/python python LineFollow.py舵机cd ~/AlphaBot2/python python PCA9685.pymjpg-streamer 软件实时监控a,raspi-config 开启摄像头 b,/etc/modules 添加一行:bcm2835-v4l2 c,重启后,ls -ltr /dev/video0 (若无,rpi-update) cd AlphaBot2/lib/mjpg-streamer ./start http://ip:8080/通过 webiopi 实现远程遥控cd AlphaBot2/lib/WebIOPi-0.7.1-raspi2 ./setup.sh webiopi -h webiopi -d -c /etc/webiopi/config http://ip:8000 mjpg-AlphaBot 目录，修改视频源 IP: cd ./AlphaBot2/mjpg-AlphaBot/ vim index.html http://x.x.x.x:8080/?action=stream cd ./AlphaBot2/mjpg-AlphaBot webiopi -c config http://x.x.x.x:8000/ ./AlphaBot2/mjpg-AlphaBot/mjpg-AlphaBot webiopi -c config 设置开机启动： cd ./AlphaBot2/mjpg-AlphaBot cp config /etc/webiopi/config update-rc.d webiopi defaults vim /etc/rc.local: cd /home/pi/AlphaBot2/lib/mjpg-streamer ./start.sh &amp;通过 Bottle 实现远程遥控a.apt-get install python-bottle b.cd ~/AlphaBot2/Web-RGB python main c. http://ip:8000 (手机端) d.cd ~/AlphaBot2/Web-Control vim index.html,修改真实ip: &lt;img width=&quot;320&quot; height=&quot;240&quot; src=&quot;http://192.168.10.235:8080/?action=stream&quot;&gt; e.python main f.http://ip:8000 g.开机启动： vim /etc/rc.local: cd /home/pi/AlphaBot2/lib/mjpg-streamer ./start.sh &amp; cd /home/pi/AlphaBot2/Web-Contrl python main &amp; h.vim /etc/dhcpcd.comf 设置静态 IP interface wlan0 static ip_address = 192.168.1.114/24 static routers = 192.168.1.1通过软件远程遥控小车a.cd ~/AlphaBot2/App-Control b.vim main.py: Host = &apos;192.168.10.235&apos; c.python main d.运行mjpg-streamer e.打开 AlphaBot.exe 程序，输入 IP 地址，mjpg-stream 的端口号，小车 Soket 服务端的端口号 f.开机启动, vim /etc/rc.local: cd /home/pi/AlphaBot/lib/mjpg-streamer ./start.sh &amp; cd /home/pi/AlphaBot/App-Contrl python main &amp; g.可开启树莓派无线网络适配器的AP功能(不用连接WIFI)通过树莓派蓝牙遥控小车a.升级蓝牙软件包 apt-get update apt-get upgrade -y apt-get dist-upgrade -y apt-get install pi-bluetooth bluez bluez-firmware blueman b.pi用户到蓝牙组 usermod –G Bluetooth –a pi c.reboot d.启动/增加 SPP，开启蓝牙设备: vim /etc/systemd/system/dbus-org.bluez.service ExecStart=/usr/lib/bluetooth/bluetoothd ExecStartPost=/usr/bin/sdptool add SP reboot e.hciconfig (如果/boot/config.txt 文件中有 dtoverlay=pi3-miniuart-bt 这语句需要注释掉) f.bluetoothctl agent on agent on default-agent pair XX:XX:XX:XX:XX:XX ( XX:XX:XX:XX:XX:XX 替换为你自己设备的地址) trust XX:XX:XX:XX:XX:XX (配对之后把设备添加到信任列表) connect XX:XX:XX:XX:XX:XX (注意：如果命令行下链接不成功可以在图形界面下连接。) g.cd /AlphaBot2/Bluetooth-Control rfcomm watch hci0 1 python bluetooth.py h.下载APP(只有安卓, page 45) https://fir.im/hysk i.bluetoothctl discoverable on quit]]></content>
+    <title><![CDATA[树莓派3b+ ubuntu ls颜色设置]]></title>
+    <url>%2F2018%2F12%2F18%2Fubuntu_ls_color%2F</url>
+    <content type="text"><![CDATA[树莓派3b+ ubuntu 终端ls时颜色设置参考： https://blog.csdn.net/LL_zhuo/article/details/44221567完]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -268,6 +267,18 @@
     <title><![CDATA[树莓派3b+_wifi-ap]]></title>
     <url>%2F2018%2F12%2F17%2Fpi3b-ap%2F</url>
     <content type="text"><![CDATA[树莓派设置wifi ap模式：参考： https://www.cnblogs.com/visionsl/p/8042315.html 或者 git clone https://github.com/oblique/create_ap.git cd create_ap/ make install apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq -y ifdown wlan0 create_ap wlan0 eth0 | create_ap --no-virt wlan0 eth0 | create_ap --no-virt wlan0 eth0 ssidname password ~~完~~]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[树莓派3b+_AlphaBot2模块列表]]></title>
+    <url>%2F2018%2F12%2F17%2Fpi3b-AlphaBot2%2F</url>
+    <content type="text"><![CDATA[Arduino控制程序：Run-Test 电机测试 Joystick 程序 五向摇杆 IR 程序 红外遥控器控制 Infrared-Obstacle-Avoidancec 红外避障 Ultrasionc-Obstacle-Avoidance 超声波避障 Ultrasionc-Infrared-Obstacle-Avoidance 超声波红外避障 Ultrasionc_Ranging 超声波测距 TRSensors 寻迹传感器测试 Infrared-Line-Tracking 红外寻迹 W2812 RGB彩灯 OLED 绘图操作demo Line-Tracking 综合程序 MazeSolver 迷宫程序 Bluetooth 蓝牙控制 Bluetooth-json 蓝牙控制(json格式) 树莓派控制程序(AlphaBot2.tar.gz):wget http://www.waveshare.net/w/upload/e/ee/AlphaBot2-Demo.7z wget http://www.waveshare.net/w/upload/c/c3/Rpi_ws281x-master.zipgpiogit clone git://git.drogon.net/wiringPi cd wiringPi ./build gpio -v gpio readall红外遥控器控制cd ~/AlphaBot2/python python IRremote.py电机测试cd ~/AlphaBot2/python python AlphaBot2.py五向摇杆cd ~/AlphaBot2/python python Joystick.py红外避障cd ~/AlphaBot2/python python Infrared_Obstacle_Avoidance.py超声波测距（树莓派 3B 套餐不包含超声波模块）cd ~/AlphaBot2/python python Ultrasonic_Rangeing.py超声波测距（树莓派 3B 套餐不包含超声波模块）cd ~/AlphaBot2/python python Infrared_Obstacle_Avoidance.pyRGB 彩灯rpi_ws281x-master.zip unzip rpi_ws281x-master.zip apt-get install build-essential python-dev scons swig cd rpi_ws281x-master scons ./test cd python python setup.py install cd examples python lowlevel.py cd ~/AlphaBot2/python python ws2812.py循迹传感器测试cd ~/AlphaBot2/python python TRSensors.py红外循迹程序cd ~/AlphaBot2/python python LineFollow.py舵机cd ~/AlphaBot2/python python PCA9685.pymjpg-streamer 软件实时监控a,raspi-config 开启摄像头 b,/etc/modules 添加一行:bcm2835-v4l2 c,重启后,ls -ltr /dev/video0 (若无,rpi-update) cd AlphaBot2/lib/mjpg-streamer ./start http://ip:8080/通过 webiopi 实现远程遥控cd AlphaBot2/lib/WebIOPi-0.7.1-raspi2 ./setup.sh webiopi -h webiopi -d -c /etc/webiopi/config http://ip:8000 mjpg-AlphaBot 目录，修改视频源 IP: cd ./AlphaBot2/mjpg-AlphaBot/ vim index.html http://x.x.x.x:8080/?action=stream cd ./AlphaBot2/mjpg-AlphaBot webiopi -c config http://x.x.x.x:8000/ ./AlphaBot2/mjpg-AlphaBot/mjpg-AlphaBot webiopi -c config 设置开机启动： cd ./AlphaBot2/mjpg-AlphaBot cp config /etc/webiopi/config update-rc.d webiopi defaults vim /etc/rc.local: cd /home/pi/AlphaBot2/lib/mjpg-streamer ./start.sh &amp;通过 Bottle 实现远程遥控a.apt-get install python-bottle b.cd ~/AlphaBot2/Web-RGB python main c. http://ip:8000 (手机端) d.cd ~/AlphaBot2/Web-Control vim index.html,修改真实ip: &lt;img width=&quot;320&quot; height=&quot;240&quot; src=&quot;http://192.168.10.235:8080/?action=stream&quot;&gt; e.python main f.http://ip:8000 g.开机启动： vim /etc/rc.local: cd /home/pi/AlphaBot2/lib/mjpg-streamer ./start.sh &amp; cd /home/pi/AlphaBot2/Web-Contrl python main &amp; h.vim /etc/dhcpcd.comf 设置静态 IP interface wlan0 static ip_address = 192.168.1.114/24 static routers = 192.168.1.1通过软件远程遥控小车a.cd ~/AlphaBot2/App-Control b.vim main.py: Host = &apos;192.168.10.235&apos; c.python main d.运行mjpg-streamer e.打开 AlphaBot.exe 程序，输入 IP 地址，mjpg-stream 的端口号，小车 Soket 服务端的端口号 f.开机启动, vim /etc/rc.local: cd /home/pi/AlphaBot/lib/mjpg-streamer ./start.sh &amp; cd /home/pi/AlphaBot/App-Contrl python main &amp; g.可开启树莓派无线网络适配器的AP功能(不用连接WIFI)通过树莓派蓝牙遥控小车a.升级蓝牙软件包 apt-get update apt-get upgrade -y apt-get dist-upgrade -y apt-get install pi-bluetooth bluez bluez-firmware blueman b.pi用户到蓝牙组 usermod –G Bluetooth –a pi c.reboot d.启动/增加 SPP，开启蓝牙设备: vim /etc/systemd/system/dbus-org.bluez.service ExecStart=/usr/lib/bluetooth/bluetoothd ExecStartPost=/usr/bin/sdptool add SP reboot e.hciconfig (如果/boot/config.txt 文件中有 dtoverlay=pi3-miniuart-bt 这语句需要注释掉) f.bluetoothctl agent on agent on default-agent pair XX:XX:XX:XX:XX:XX ( XX:XX:XX:XX:XX:XX 替换为你自己设备的地址) trust XX:XX:XX:XX:XX:XX (配对之后把设备添加到信任列表) connect XX:XX:XX:XX:XX:XX (注意：如果命令行下链接不成功可以在图形界面下连接。) g.cd /AlphaBot2/Bluetooth-Control rfcomm watch hci0 1 python bluetooth.py h.下载APP(只有安卓, page 45) https://fir.im/hysk i.bluetoothctl discoverable on quit]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -296,8 +307,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>iptables</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -313,18 +324,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[gitlab的restFul Api]]></title>
-    <url>%2F2018%2F12%2F04%2Fgitlab-restFul%2F</url>
-    <content type="text"><![CDATA[gitlab官方文档pip install python-gitlab 参考： https://docs.gitlab.com/ce/api/README.htmlimportimport gitlabconfig paramurl = &apos;http://xxxxxxx&apos; token = &apos;xxxxxxxxxxxxxx&apos;登录gl = gitlab.Gitlab(url, token)获取第一页projectprojects = gl.projects.list()获取所有的projectprojects = gl.projects.list(all=True)获取所有project的name,idfor p in gl.projects.list(all=True, as_list=False): print(p.name, p.id)获取某个id的project下的某个文件的内容：api: https://docs.gitlab.com/ce/api/repository_files.html#get-file-from-repository example: GET /projects/:id/repository/files/:file_path curl --request GET --header &apos;PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK&apos; &apos;https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=master&apos; 参考： https://blog.csdn.net/felix_yujing/article/details/5271292512345678910111213141516171819202122232425262728293031323334353637&gt;&gt;&gt; import gitlab&gt;&gt;&gt; private_token = 'xxx'&gt;&gt;&gt; host = 'https://git.xxx.yyy.com'&gt;&gt;&gt; port = '443'&gt;&gt;&gt; email = 'admin@example.com'&gt;&gt;&gt; branch = 'master'&gt;&gt;&gt; timeout = 60&gt;&gt;&gt; project_name = 'camera'&gt;&gt;&gt; file_path = '/execenv/execenv.yml'&gt;&gt;&gt; client = gitlab.Gitlab('&#123;0&#125;:&#123;1&#125;'.format(host, port), email, private_token, timeout)&gt;&gt;&gt; project_objects = client.projects.list(search = project_name)&gt;&gt;&gt; project_id = None&gt;&gt;&gt; for item in project_objects:... if item.name == project_name:... project_id = item.id... else:... continue&gt;&gt;&gt; project_id64&gt;&gt;&gt; url = '&#123;0&#125;:&#123;1&#125;/api/v4/projects/&#123;2&#125;/repository/files?private_token=&#123;3&#125;&amp;file_path=&#123;4&#125;&amp;ref=&#123;5&#125;'.format(host, port, project_id, private_token, file_path, branch)&gt;&gt;&gt; result = requests.get(url)&gt;&gt;&gt; data = result.json()&gt;&gt;&gt; content = base64.b64decode(data['content'])&gt;&gt;&gt; print content---os: linuxversion: 1.0appService: cameraexec: - type: java version: 1.8 verify: java -version 更新某个id的project下的某个文件内容：api: https://docs.gitlab.com/ce/api/repository_files.html#update-existing-file-in-repository example: PUT /projects/:id/repository/files/:file_path curl --request PUT --header &apos;PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK&apos; --header &quot;Content-Type: application/json&quot; \ --data &apos;{&quot;branch&quot;: &quot;master&quot;, &quot;author_email&quot;: &quot;author@example.com&quot;, &quot;author_name&quot;: &quot;Firstname Lastname&quot;, \ &quot;content&quot;: &quot;some content&quot;, &quot;commit_message&quot;: &quot;update file&quot;}&apos; \ &apos;https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb&apos; response: { &quot;file_path&quot;: &quot;app/project.rb&quot;, &quot;branch&quot;: &quot;master&quot; }获取第一页project的name,idfor p in gl.projects.list(page=1): print(p.name, p.id)通过指定id 获取 project 对象project = gl.projects.get(501)查找项目projects = gl.projects.list(search=&apos;keyword&apos;)创建一个项目project = gl.projects.create({&apos;name&apos;:&apos;project1&apos;})获取公开的项目projects = gl.projects.list(visibility=&apos;public&apos;) # public, internal or private获取 project 对象是以下操作的基础通过指定project对象获取该项目的所有分支branches = project.branches.list() print(branches)获取指定分支的属性branch = project.branches.get(&apos;master&apos;) print(branch)创建分支branch = project.branches.create({&apos;branch_name&apos;: &apos;feature1&apos;, &apos;ref&apos;: &apos;master&apos;})删除分支project.branches.delete(&apos;feature1&apos;)获取指定项目的所有tagstags = project.tags.list()获取某个指定tag 的信息tags = project.tags.list(&apos;1.0&apos;)创建一个tagtag = project.tags.create({&apos;tag_name&apos;:&apos;1.0&apos;, &apos;ref&apos;:&apos;master&apos;})设置tags 说明:tag.set_release_description(&apos;awesome v1.0 release&apos;)删除tagsproject.tags.delete(&apos;1.0&apos;) or tag.delete()获取所有commit infocommits = project.commits.list() for c in commits: print(c.author_name, c.message, c.title)获取指定commit的infocommit = project.commits.get(&apos;e3d5a71b&apos;)创建一个commitdata = { &apos;branch_name&apos;: &apos;master&apos;, # v3 &apos;commit_message&apos;: &apos;blah blah blah&apos;, &apos;actions&apos;: [ { &apos;action&apos;: &apos;create&apos;, &apos;file_path&apos;: &apos;blah&apos;, &apos;content&apos;: &apos;blah&apos; } ] } commit = project.commits.create(data)Compare two branches, tags or commits:result = project.repository_compare(&apos;develop&apos;, &apos;feature-20180104&apos;) print(result)get the commitsfor commit in result[&apos;commits&apos;]: print(commit)get the diffsfor file_diff in result[&apos;diffs&apos;]: print(file_diff)get the commitsfor commit in result[&apos;commits&apos;]: print(commit)get the diffsfor file_diff in result[&apos;diffs&apos;]: print(file_diff)groups/project members’s api参考： https://docs.gitlab.com/ce/api/members.html待续]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>gitlab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[jenkins的restFul Api]]></title>
     <url>%2F2018%2F12%2F04%2Fjenkink-restFul%2F</url>
     <content type="text"><![CDATA[安装pip install python-jenkins doc参考： https://python-jenkins.readthedocs.io/en/latest/api.htmlimport&gt;&gt;&gt; import jenkinsconnect&gt;&gt;&gt; jk = jenkins.Jenkins(url = &apos;http://platform.xxxx.xxxx.com:9090&apos;, username=&apos;root&apos;, password=&apos;********&apos;, timeout = 60)get jenkins version&gt;&gt;&gt; version = jk.get_version()get job config.xml&gt;&gt;&gt; admin_config = jk.get_job_config(&apos;admin-server&apos;)modify job config.xml...modify job from config.xml&gt;&gt;&gt; ret = jk.reconfig_job(&apos;admin-server&apos;, admin_config)create job from config.xml&gt;&gt;&gt; admin_2 = jk.create_job(&apos;admin-server-copy&apos;, admin_config)delete job&gt;&gt;&gt; ret = jk.delete_job(&apos;admin-server-copy&apos;)check job is exist&gt;&gt;&gt; ret = jk.job_exists(&apos;admin-server-copy&apos;) &gt;&gt;&gt; print ret None &gt;&gt;&gt; ret = jk.job_exists(&apos;admin-server&apos;) &gt;&gt;&gt; ret Trueget next build number&gt;&gt;&gt; next_build_number = jk.get_job_info(&apos;admin-server&apos;)[&apos;nextBuildNumber&apos;]build job&gt;&gt;&gt; output = server.build_job(&apos;admin-server&apos;)get job build info&gt;&gt;&gt; from time import sleep; sleep(10) &gt;&gt;&gt; build_info = jk.get_build_info(&apos;admin-server&apos;, next_build_number) &gt;&gt;&gt; print(build_info)get job build console info&gt;&gt;&gt; build_info = jk.get_build_console_output(&apos;admin-server&apos;, 105)待续]]></content>
@@ -334,6 +333,18 @@
       <tags>
         <tag>python</tag>
         <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gitlab的restFul Api]]></title>
+    <url>%2F2018%2F12%2F04%2Fgitlab-restFul%2F</url>
+    <content type="text"><![CDATA[gitlab官方文档pip install python-gitlab 参考： https://docs.gitlab.com/ce/api/README.htmlimportimport gitlabconfig paramurl = &apos;http://xxxxxxx&apos; token = &apos;xxxxxxxxxxxxxx&apos;登录gl = gitlab.Gitlab(url, token)获取第一页projectprojects = gl.projects.list()获取所有的projectprojects = gl.projects.list(all=True)获取所有project的name,idfor p in gl.projects.list(all=True, as_list=False): print(p.name, p.id)获取某个id的project下的某个文件的内容：api: https://docs.gitlab.com/ce/api/repository_files.html#get-file-from-repository example: GET /projects/:id/repository/files/:file_path curl --request GET --header &apos;PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK&apos; &apos;https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=master&apos; 参考： https://blog.csdn.net/felix_yujing/article/details/5271292512345678910111213141516171819202122232425262728293031323334353637&gt;&gt;&gt; import gitlab&gt;&gt;&gt; private_token = 'xxx'&gt;&gt;&gt; host = 'https://git.xxx.yyy.com'&gt;&gt;&gt; port = '443'&gt;&gt;&gt; email = 'admin@example.com'&gt;&gt;&gt; branch = 'master'&gt;&gt;&gt; timeout = 60&gt;&gt;&gt; project_name = 'camera'&gt;&gt;&gt; file_path = '/execenv/execenv.yml'&gt;&gt;&gt; client = gitlab.Gitlab('&#123;0&#125;:&#123;1&#125;'.format(host, port), email, private_token, timeout)&gt;&gt;&gt; project_objects = client.projects.list(search = project_name)&gt;&gt;&gt; project_id = None&gt;&gt;&gt; for item in project_objects:... if item.name == project_name:... project_id = item.id... else:... continue&gt;&gt;&gt; project_id64&gt;&gt;&gt; url = '&#123;0&#125;:&#123;1&#125;/api/v4/projects/&#123;2&#125;/repository/files?private_token=&#123;3&#125;&amp;file_path=&#123;4&#125;&amp;ref=&#123;5&#125;'.format(host, port, project_id, private_token, file_path, branch)&gt;&gt;&gt; result = requests.get(url)&gt;&gt;&gt; data = result.json()&gt;&gt;&gt; content = base64.b64decode(data['content'])&gt;&gt;&gt; print content---os: linuxversion: 1.0appService: cameraexec: - type: java version: 1.8 verify: java -version 更新某个id的project下的某个文件内容：api: https://docs.gitlab.com/ce/api/repository_files.html#update-existing-file-in-repository example: PUT /projects/:id/repository/files/:file_path curl --request PUT --header &apos;PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK&apos; --header &quot;Content-Type: application/json&quot; \ --data &apos;{&quot;branch&quot;: &quot;master&quot;, &quot;author_email&quot;: &quot;author@example.com&quot;, &quot;author_name&quot;: &quot;Firstname Lastname&quot;, \ &quot;content&quot;: &quot;some content&quot;, &quot;commit_message&quot;: &quot;update file&quot;}&apos; \ &apos;https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb&apos; response: { &quot;file_path&quot;: &quot;app/project.rb&quot;, &quot;branch&quot;: &quot;master&quot; }获取第一页project的name,idfor p in gl.projects.list(page=1): print(p.name, p.id)通过指定id 获取 project 对象project = gl.projects.get(501)查找项目projects = gl.projects.list(search=&apos;keyword&apos;)创建一个项目project = gl.projects.create({&apos;name&apos;:&apos;project1&apos;})获取公开的项目projects = gl.projects.list(visibility=&apos;public&apos;) # public, internal or private获取 project 对象是以下操作的基础通过指定project对象获取该项目的所有分支branches = project.branches.list() print(branches)获取指定分支的属性branch = project.branches.get(&apos;master&apos;) print(branch)创建分支branch = project.branches.create({&apos;branch_name&apos;: &apos;feature1&apos;, &apos;ref&apos;: &apos;master&apos;})删除分支project.branches.delete(&apos;feature1&apos;)获取指定项目的所有tagstags = project.tags.list()获取某个指定tag 的信息tags = project.tags.list(&apos;1.0&apos;)创建一个tagtag = project.tags.create({&apos;tag_name&apos;:&apos;1.0&apos;, &apos;ref&apos;:&apos;master&apos;})设置tags 说明:tag.set_release_description(&apos;awesome v1.0 release&apos;)删除tagsproject.tags.delete(&apos;1.0&apos;) or tag.delete()获取所有commit infocommits = project.commits.list() for c in commits: print(c.author_name, c.message, c.title)获取指定commit的infocommit = project.commits.get(&apos;e3d5a71b&apos;)创建一个commitdata = { &apos;branch_name&apos;: &apos;master&apos;, # v3 &apos;commit_message&apos;: &apos;blah blah blah&apos;, &apos;actions&apos;: [ { &apos;action&apos;: &apos;create&apos;, &apos;file_path&apos;: &apos;blah&apos;, &apos;content&apos;: &apos;blah&apos; } ] } commit = project.commits.create(data)Compare two branches, tags or commits:result = project.repository_compare(&apos;develop&apos;, &apos;feature-20180104&apos;) print(result)get the commitsfor commit in result[&apos;commits&apos;]: print(commit)get the diffsfor file_diff in result[&apos;diffs&apos;]: print(file_diff)get the commitsfor commit in result[&apos;commits&apos;]: print(commit)get the diffsfor file_diff in result[&apos;diffs&apos;]: print(file_diff)groups/project members’s api参考： https://docs.gitlab.com/ce/api/members.html待续]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>gitlab</tag>
       </tags>
   </entry>
   <entry>
@@ -438,9 +449,9 @@
         <category>Chrome</category>
       </categories>
       <tags>
-        <tag>iptables</tag>
         <tag>Chrome</tag>
         <tag>centos</tag>
+        <tag>iptables</tag>
       </tags>
   </entry>
   <entry>
